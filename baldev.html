@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>91 Club | Premium Gaming Platform</title>
+
+<meta name="description" content="91 Club official gaming platform with premium gaming experience and secure login access.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* =========================
+BACKGROUND EFFECTS
+========================= */
+
+body::before{
+content:'';
+position:fixed;
+width:900px;
+height:900px;
+background:radial-gradient(circle,
+rgba(255,0,60,0.14),
+transparent 70%);
+top:-350px;
+left:-320px;
+filter:blur(120px);
+animation:moveGlow 8s infinite alternate ease-in-out;
+z-index:-5;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:800px;
+height:800px;
+background:radial-gradient(circle,
+rgba(255,0,0,0.10),
+transparent 70%);
+bottom:-320px;
+right:-320px;
+filter:blur(120px);
+animation:moveGlow2 10s infinite alternate ease-in-out;
+z-index:-5;
+}
+
+@keyframes moveGlow{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(80px,-60px);
+}
+
+}
+
+@keyframes moveGlow2{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(-70px,70px);
+}
+
+}
+
+/* =========================
+PARTICLES
+========================= */
+
+.particle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.12);
+animation:float 8s infinite ease-in-out;
+}
+
+.p1{
+width:12px;
+height:12px;
+top:18%;
+left:10%;
+}
+
+.p2{
+width:18px;
+height:18px;
+top:60%;
+right:14%;
+animation-delay:2s;
+}
+
+.p3{
+width:10px;
+height:10px;
+bottom:14%;
+left:22%;
+animation-delay:4s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+opacity:0.5;
+}
+
+50%{
+transform:translateY(-40px);
+opacity:1;
+}
+
+100%{
+transform:translateY(0px);
+opacity:0.5;
+}
+
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-box{
+width:60px;
+height:60px;
+border-radius:20px;
+background:linear-gradient(
+135deg,
+#ff0037,
+#7a0000
+);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+font-weight:900;
+box-shadow:
+0 0 40px rgba(255,0,60,0.4);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 20px rgba(255,0,60,0.3);
+}
+
+50%{
+box-shadow:0 0 50px rgba(255,0,60,0.7);
+}
+
+100%{
+box-shadow:0 0 20px rgba(255,0,60,0.3);
+}
+
+}
+
+.logo-text{
+font-size:28px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.btn{
+padding:14px 36px;
+border-radius:18px;
+text-decoration:none;
+font-size:13px;
+font-weight:700;
+position:relative;
+overflow:hidden;
+transition:0.45s ease;
+display:inline-flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+135deg,
+#ff0037,
+#910000
+);
+color:white;
+box-shadow:
+0 15px 40px rgba(255,0,60,0.35);
+}
+
+.btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.3),
+transparent
+);
+transition:0.7s;
+}
+
+.btn:hover::before{
+left:120%;
+}
+
+.btn:hover{
+transform:translateY(-6px) scale(1.05);
+}
+
+/* =========================
+HERO SECTION
+========================= */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:180px 20px 120px;
+}
+
+.hero-content{
+max-width:1100px;
+animation:fadeUp 1.3s ease;
+}
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 26px;
+border-radius:60px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+font-size:13px;
+font-weight:600;
+margin-bottom:34px;
+color:#ffb5b5;
+}
+
+.hero h1{
+font-size:clamp(52px,8vw,110px);
+line-height:1;
+font-weight:900;
+letter-spacing:-3px;
+margin-bottom:24px;
+text-transform:uppercase;
+}
+
+.hero h1 span{
+background:linear-gradient(
+to bottom,
+#ffffff,
+#ff0037
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:17px;
+line-height:1.9;
+max-width:760px;
+margin:auto;
+color:#d7d7d7;
+margin-bottom:50px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+margin-bottom:80px;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(60px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* =========================
+STATS
+========================= */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.stat-box{
+width:260px;
+padding:38px;
+border-radius:30px;
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.08),
+rgba(255,255,255,0.02)
+);
+border:1px solid rgba(255,255,255,0.06);
+backdrop-filter:blur(18px);
+transition:0.45s ease;
+}
+
+.stat-box:hover{
+transform:translateY(-14px);
+box-shadow:
+0 30px 70px rgba(255,0,60,0.16);
+}
+
+.stat-box h2{
+font-size:48px;
+font-weight:900;
+color:#ff0037;
+margin-bottom:10px;
+}
+
+.stat-box p{
+font-size:14px;
+color:#d0d0d0;
+}
+
+/* =========================
+FEATURES
+========================= */
+
+.features{
+padding:0 7% 120px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.feature-card{
+padding:42px;
+border-radius:32px;
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.06),
+rgba(255,255,255,0.015)
+);
+border:1px solid rgba(255,255,255,0.06);
+backdrop-filter:blur(18px);
+transition:0.45s ease;
+}
+
+.feature-card:hover{
+transform:translateY(-16px);
+box-shadow:
+0 30px 65px rgba(255,0,60,0.15);
+}
+
+.feature-icon{
+width:80px;
+height:80px;
+border-radius:26px;
+background:linear-gradient(
+135deg,
+#ff0037,
+#850000
+);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+margin-bottom:26px;
+box-shadow:
+0 18px 40px rgba(255,0,60,0.3);
+}
+
+.feature-card h3{
+font-size:24px;
+margin-bottom:14px;
+}
+
+.feature-card p{
+font-size:15px;
+line-height:1.8;
+color:#d0d0d0;
+}
+
+/* =========================
+FAQ
+========================= */
+
+.faq{
+padding:0 7% 120px;
+max-width:1000px;
+margin:auto;
+}
+
+.faq-title{
+text-align:center;
+font-size:42px;
+font-weight:900;
+margin-bottom:60px;
+}
+
+.faq-box{
+padding:28px;
+margin-bottom:24px;
+border-radius:26px;
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.06),
+rgba(255,255,255,0.015)
+);
+border:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(16px);
+transition:0.4s ease;
+}
+
+.faq-box:hover{
+transform:translateY(-8px);
+box-shadow:
+0 20px 50px rgba(255,0,60,0.12);
+}
+
+.faq-box h3{
+font-size:20px;
+margin-bottom:12px;
+}
+
+.faq-box p{
+font-size:14px;
+line-height:1.8;
+color:#d0d0d0;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+padding:50px 20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.02);
+color:#999;
+font-size:13px;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+nav{
+padding:16px 5%;
+}
+
+.logo-text{
+font-size:22px;
+}
+
+.hero{
+padding-top:170px;
+}
+
+.hero h1{
+font-size:48px;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.features,
+.faq{
+padding-left:5%;
+padding-right:5%;
+}
+
+.stat-box,
+.feature-card,
+.faq-box{
+border-radius:24px;
+}
+
+.faq-title{
+font-size:34px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+
+<div class="logo-box">
+91
+</div>
+
+<div class="logo-text">
+CLUB
+</div>
+
+</div>
+
+<a href="https://www.fqindia.com/#/login"
+class="btn"
+target="_blank">
+
+Login
+
+</a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-badge">
+🔥 Premium Gaming Experience
+</div>
+
+<h1>
+PLAY & WIN AT <br>
+<span>91 CLUB</span>
+</h1>
+
+<p>
+Experience ultra-fast gaming servers, premium gameplay, VIP access, and a next-generation gaming platform with secure login access.
+</p>
+
+<div class="hero-buttons">
+
+<a href="https://www.fqindia.com/#/login"
+class="btn"
+target="_blank">
+
+Login Now
+
+</a>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat-box">
+
+<h2>
+24/7
+</h2>
+
+<p>
+Gaming Access
+</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>
+FAST
+</h2>
+
+<p>
+Server Speed
+</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>
+VIP
+</h2>
+
+<p>
+Premium Experience
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+<div class="feature-card">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Fast Gaming
+</h3>
+
+<p>
+Enjoy ultra-fast server performance with smooth gameplay and instant loading experience.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🔒
+</div>
+
+<h3>
+Secure Access
+</h3>
+
+<p>
+Advanced secure login systems provide safe and protected platform access anytime.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+👑
+</div>
+
+<h3>
+Premium Platform
+</h3>
+
+<p>
+Experience premium-level gaming features with modern design and smooth navigation.
+</p>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<h2 class="faq-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-box">
+
+<h3>
+How do I login to 91 Club?
+</h3>
+
+<p>
+Click the Login button and enter your account details securely to access the platform instantly.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+Is 91 Club available on mobile devices?
+</h3>
+
+<p>
+Yes, the platform works smoothly on Android phones, iPhones, tablets, and desktop browsers.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+Is the platform accessible 24/7?
+</h3>
+
+<p>
+Yes, users can access the platform anytime with high-speed servers and smooth performance.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+Is 91 Club secure?
+</h3>
+
+<p>
+Yes, the platform uses secure systems and protected login methods for a safe user experience.
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 91 CLUB. ALL RIGHTS RESERVED.
+</p>
+
+<p style="margin-top:10px;">
+18+ ONLY • PLAY RESPONSIBLY
+</p>
+
+</footer>
+
+</body>
+
+</html>
